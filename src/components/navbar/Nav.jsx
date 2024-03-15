@@ -1,5 +1,5 @@
 'use client'
-import React from "react";
+import React, { useState } from "react";
 import {
   Navbar,
   MobileNav,
@@ -8,9 +8,14 @@ import {
   IconButton,
 } from "@material-tailwind/react";
 import Link from "next/link";
+import { usePathname } from 'next/navigation'
+
+
 
 export function NavbarDefault() {
   const [openNav, setOpenNav] = React.useState(false);
+  const [open, setOpen] = useState(false)
+  const pathname = usePathname()
 
   React.useEffect(() => {
     window.addEventListener(
@@ -40,7 +45,7 @@ export function NavbarDefault() {
           />
         </svg>
 
-        <Link href="/" className="flex items-center">
+        <Link href="/" className={`flex items-center hover:text-blue-500 duration-300 ${pathname === '/' ? 'active' : ''}`}>
           Gallery
         </Link>
       </Typography>
@@ -64,7 +69,7 @@ export function NavbarDefault() {
             fill="#90A4AE"
           />
         </svg>
-        <Link href="/account" className="flex items-center">
+        <Link href="/account" className={`flex items-center  hover:text-blue-500 duration-300 ${pathname === '/account' ? 'active' : ''}`}>
           Account
         </Link>
       </Typography>
