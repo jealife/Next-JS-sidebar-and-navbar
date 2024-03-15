@@ -2,6 +2,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { NavbarDefault } from "@/components/navbar/Nav";
 import {SidebarWithSearch } from "@/components/sidebar/SideBar";
+import Footer from "@/components/footer/Footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -33,9 +34,10 @@ export default function RootLayout({ children }) {
           <aside className=" shadow-sm -translate-x-80 fixed inset-0 z-50 w-72 my-4 ml-4 h-[calc(100vh-32px)]  transition-transform duration-300 xl:translate-x-0">
             <SidebarWithSearch/>
           </aside>
-          <div className="p-4 xl:ml-80">
+          <div className="p-4 xl:ml-80 flex flex-col items-center justify-center">
             <NavbarDefault />
             {children}
+          <Footer/>
           </div>
         </div>
       </body>
