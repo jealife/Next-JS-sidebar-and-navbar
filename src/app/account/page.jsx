@@ -1,8 +1,9 @@
+import React from 'react'
 
-export default function Home() {
+export default function page() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
-        <h1 >Page</h1>
+        <h1 >Acount</h1>
     </main>
-  );
+  )
 }

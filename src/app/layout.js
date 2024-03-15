@@ -1,5 +1,7 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
+import { NavbarDefault } from "@/components/navbar/Nav";
+import {SidebarWithSearch } from "@/components/sidebar/SideBar";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -26,7 +28,17 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <div className="min-h-screen">
+          <aside className=" shadow-sm -translate-x-80 fixed inset-0 z-50 w-72 my-4 ml-4 h-[calc(100vh-32px)]  transition-transform duration-300 xl:translate-x-0">
+            <SidebarWithSearch/>
+          </aside>
+          <div className="p-4 xl:ml-80">
+            <NavbarDefault />
+            {children}
+          </div>
+        </div>
+      </body>
     </html>
   );
 }
